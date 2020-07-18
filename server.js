@@ -62,6 +62,15 @@ app.post("/api/tables", function (request, res) {
 
   var newTable = request.body;
 
+  //handling duplicate IDs
+  var id = newTable.customerID;
+
+  for (const table of tables) {
+    if (id === table.customerID) {
+      return res.json({ err: "ID already exists" })
+    }
+  }
+
   if (tables.length < 5) {
 
     console.log(newTable);

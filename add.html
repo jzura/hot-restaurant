@@ -112,6 +112,11 @@
 
                     // If a table is available... tell user they are booked.
                     if (data) {
+
+                        if(data.err) {
+                            alert("ID already exist");
+                            return 
+                        }
                         alert("Yay! You are officially booked!");
                     }
 
